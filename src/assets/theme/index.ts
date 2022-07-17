@@ -6,4 +6,11 @@ export const theme = extendTheme({
     heading: 'Albert Sans',
     mono: 'Albert Sans',
   },
+  components: {
+    Input: {
+      defaultProps: {
+        focusBorderColor: 'facebook.500',
+      },
+    },
+  },
 });
