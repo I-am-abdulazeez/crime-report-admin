@@ -12,10 +12,10 @@ import {
   Spacer,
   Tab,
   TabList,
+  TabPanel,
   TabPanels,
   Tabs,
 } from '@chakra-ui/react';
-
 
 import { DocumentData, QueryDocumentSnapshot } from 'firebase/firestore';
 
@@ -58,7 +58,9 @@ const Dashboard: React.FC<DashboardProps> = ({ crimes, isLoading }) => {
             <Tab fontSize={'sm'}>Attended Crimes</Tab>
           </TabList>
           <TabPanels>
-            <AllCrimesTab crimes={crimes} isLoading={isLoading} />
+            <TabPanel>
+              <AllCrimesTab crimes={crimes} isLoading={isLoading} />
+            </TabPanel>
           </TabPanels>
         </Tabs>
       </Box>
