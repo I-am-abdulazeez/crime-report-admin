@@ -20,7 +20,6 @@ type AllCrimesTabProps = {
 
 const AllCrimesTab: React.FC<AllCrimesTabProps> = ({ isLoading, crimes }) => {
   return (
-    <TabPanel>
       <TableContainer border={'1px solid #EDF2F7'} rounded={'lg'}>
         <Table variant="striped">
           <TableCaption>CrimeReport. Data</TableCaption>
@@ -60,7 +59,7 @@ const AllCrimesTab: React.FC<AllCrimesTabProps> = ({ isLoading, crimes }) => {
           </Tbody>
         </Table>
       </TableContainer>
-    </TabPanel>
+
   );
 };
 
