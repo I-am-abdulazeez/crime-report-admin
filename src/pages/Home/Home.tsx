@@ -1,5 +1,6 @@
 import { Button, Center, Heading, Text } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import CrimeHeading from 'src/components/CrimeHeading/CrimeHeading';
 
 import { bgGradient, buttonGradient, overlayBg } from 'src/constants';
 
@@ -12,12 +13,7 @@ const Home = () => {
       flexDir={'column'}
       bgSize={'cover'}
     >
-      <Heading fontSize={'2xl'} fontWeight={'black'}>
-        CrimeReport.
-      </Heading>
-      <Text my={'0.6rem'} fontSize={'lg'}>
-        Welcome to our Admin page.
-      </Text>
+      <CrimeHeading text={'Welcome to our Admin page.'} />
       <Button
         bgGradient={bgGradient}
         _hover={buttonGradient}
