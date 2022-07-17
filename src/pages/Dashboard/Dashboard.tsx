@@ -30,6 +30,7 @@ import { DocumentData, QueryDocumentSnapshot } from 'firebase/firestore';
 
 type DashboardProps = {
   crimes: QueryDocumentSnapshot<DocumentData>[];
+  isLoading: boolean;
 };
 
 const Dashboard: React.FC<DashboardProps> = ({ crimes }) => {
