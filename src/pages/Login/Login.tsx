@@ -5,22 +5,17 @@ import {
   Container,
   FormControl,
   FormLabel,
-  Heading,
   Input,
-  Text,
 } from '@chakra-ui/react';
+
+import CrimeHeading from 'src/components/CrimeHeading/CrimeHeading';
 
 import { overlayBg, bgGradient, buttonGradient } from 'src/constants';
 
 const Login = () => {
   return (
     <Center bg={overlayBg} height={'100vh'} flexDir={'column'} bgSize={'cover'}>
-      <Heading color={'white'} fontSize={'2xl'} fontWeight={'black'}>
-        CrimeReport.
-      </Heading>
-      <Text color={'white'} my={'0.6rem'} fontSize={'lg'}>
-        Welcome, Admin
-      </Text>
+      <CrimeHeading text={'Welcome, Admin'} />
       <Container maxWidth={'350px'}>
         <FormControl my={3}>
           <FormLabel color={'white'}>Admin Email Address</FormLabel>
