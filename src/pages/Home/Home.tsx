@@ -1,4 +1,5 @@
 import { Button, Center, Heading, Text } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 import { bgGradient, buttonGradient, overlayBg } from 'src/constants';
 
@@ -22,6 +23,8 @@ const Home = () => {
         _hover={buttonGradient}
         _focus={buttonGradient}
         color={'#000'}
+        as={Link}
+        to={'/login'}
       >
         Admin Login
       </Button>
