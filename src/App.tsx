@@ -1,8 +1,10 @@
+import { Box, Text } from '@chakra-ui/react';
+
 const App = () => {
   return (
-    <div>
-      <h3>Hello, Vite + react</h3>
-    </div>
+    <Box>
+      <Text>Hello, Vite + react</Text>
+    </Box>
   );
 };
 
