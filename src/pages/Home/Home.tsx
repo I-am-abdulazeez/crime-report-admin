@@ -1,4 +1,4 @@
-import { Button, Center, Heading, Text } from '@chakra-ui/react';
+import { Button, Center } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import CrimeHeading from 'src/components/CrimeHeading/CrimeHeading';
 
