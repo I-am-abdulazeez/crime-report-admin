@@ -3,6 +3,7 @@ import {
   Badge,
   Box,
   Button,
+  Center,
   Container,
   Heading,
   HStack,
@@ -11,6 +12,7 @@ import {
   MenuItem,
   MenuList,
   Spacer,
+  Spinner,
   Tab,
   Table,
   TableCaption,
@@ -33,7 +35,7 @@ type DashboardProps = {
   isLoading: boolean;
 };
 
-const Dashboard: React.FC<DashboardProps> = ({ crimes }) => {
+const Dashboard: React.FC<DashboardProps> = ({ crimes, isLoading }) => {
   console.log(crimes);
   return (
     <Container maxWidth={'container.lg'}>
@@ -69,14 +71,26 @@ const Dashboard: React.FC<DashboardProps> = ({ crimes }) => {
               <TableContainer border={'1px solid #EDF2F7'} rounded={'lg'}>
                 <Table variant="striped">
                   <TableCaption>CrimeReport. Data</TableCaption>
-                  <Thead>
-                    <Tr>
-                      <Th>Email Address</Th>
-                      <Th>Name</Th>
-                      <Th>Phone Number</Th>
-                      <Th>Crime</Th>
-                    </Tr>
-                  </Thead>
+                  {isLoading ? (
+                    <Thead p={4}>
+                      <Tr>
+                        <Th>
+                          <Center>
+                            <Spinner emptyColor="gray.200" color="purple.500" />
+                          </Center>
+                        </Th>
+                      </Tr>
+                    </Thead>
+                  ) : (
+                    <Thead>
+                      <Tr>
+                        <Th>Email Address</Th>
+                        <Th>Name</Th>
+                        <Th>Phone Number</Th>
+                        <Th>Crime</Th>
+                      </Tr>
+                    </Thead>
+                  )}
                   <Tbody>
                     {crimes &&
                       crimes.map((crime) => {
@@ -91,14 +105,6 @@ const Dashboard: React.FC<DashboardProps> = ({ crimes }) => {
                         );
                       })}
                   </Tbody>
-                  <Tfoot>
-                    <Tr>
-                      <Th>Name</Th>
-                      <Th>Phone Number</Th>
-                      <Th>Crime</Th>
-                      <Th>Email Address</Th>
-                    </Tr>
-                  </Tfoot>
                 </Table>
               </TableContainer>
             </TabPanel>
