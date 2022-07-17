@@ -9,7 +9,7 @@ export const theme = extendTheme({
   components: {
     Input: {
       defaultProps: {
-        focusBorderColor: 'facebook.500',
+        focusBorderColor: 'purple.300',
       },
     },
   },
