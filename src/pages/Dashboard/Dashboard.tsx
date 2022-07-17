@@ -2,8 +2,6 @@ import {
   Avatar,
   Badge,
   Box,
-  Button,
-  Center,
   Container,
   Heading,
   HStack,
@@ -12,23 +10,16 @@ import {
   MenuItem,
   MenuList,
   Spacer,
-  Spinner,
   Tab,
-  Table,
-  TableCaption,
-  TableContainer,
   TabList,
-  TabPanel,
   TabPanels,
   Tabs,
-  Tbody,
-  Td,
-  Tfoot,
-  Th,
-  Thead,
-  Tr,
 } from '@chakra-ui/react';
+
+
 import { DocumentData, QueryDocumentSnapshot } from 'firebase/firestore';
+
+import AllCrimesTab from 'src/components/AllCrimesTab/AllCrimesTab';
 
 type DashboardProps = {
   crimes: QueryDocumentSnapshot<DocumentData>[];
@@ -67,47 +58,7 @@ const Dashboard: React.FC<DashboardProps> = ({ crimes, isLoading }) => {
             <Tab fontSize={'sm'}>Attended Crimes</Tab>
           </TabList>
           <TabPanels>
-            <TabPanel>
-              <TableContainer border={'1px solid #EDF2F7'} rounded={'lg'}>
-                <Table variant="striped">
-                  <TableCaption>CrimeReport. Data</TableCaption>
-                  {isLoading ? (
-                    <Thead p={4}>
-                      <Tr>
-                        <Th>
-                          <Center>
-                            <Spinner emptyColor="gray.200" color="purple.500" />
-                          </Center>
-                        </Th>
-                      </Tr>
-                    </Thead>
-                  ) : (
-                    <Thead>
-                      <Tr>
-                        <Th>Email Address</Th>
-                        <Th>Name</Th>
-                        <Th>Phone Number</Th>
-                        <Th>Crime</Th>
-                      </Tr>
-                    </Thead>
-                  )}
-                  <Tbody>
-                    {crimes &&
-                      crimes.map((crime) => {
-                        const id = crime.id;
-                        return (
-                          <Tr key={id}>
-                            <Td>{crime.data().email}</Td>
-                            <Td>{crime.data().name}</Td>
-                            <Td>{crime.data().phoneNumber}</Td>
-                            <Td>{crime.data().crime}</Td>
-                          </Tr>
-                        );
-                      })}
-                  </Tbody>
-                </Table>
-              </TableContainer>
-            </TabPanel>
+            <AllCrimesTab crimes={crimes} isLoading={isLoading} />
           </TabPanels>
         </Tabs>
       </Box>
