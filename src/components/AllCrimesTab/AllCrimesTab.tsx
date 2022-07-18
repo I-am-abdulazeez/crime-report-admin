@@ -11,6 +11,8 @@ import {
   Td,
 } from '@chakra-ui/react';
 
+import CrimeEdit from '../CrimeEdit/CrimeEdit';
+
 import { useStore } from 'src/store';
 
 const AllCrimesTab = () => {
@@ -46,6 +48,9 @@ const AllCrimesTab = () => {
               const id = crime.id;
               return (
                 <Tr key={id}>
+                  {/* <Td>
+                    <CrimeEdit crime={crime} />
+                  </Td> */}
                   <Td>{crime.data().email}</Td>
                   <Td>{crime.data().name}</Td>
                   <Td>{crime.data().phoneNumber}</Td>
