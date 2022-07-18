@@ -17,9 +17,8 @@ import {
   Tabs,
 } from '@chakra-ui/react';
 
-import { DocumentData, QueryDocumentSnapshot } from 'firebase/firestore';
-
 import AllCrimesTab from 'src/components/AllCrimesTab/AllCrimesTab';
+
 import { useStore } from 'src/store';
 
 const Dashboard = () => {
