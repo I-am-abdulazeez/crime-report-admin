@@ -20,14 +20,10 @@ import {
 import { DocumentData, QueryDocumentSnapshot } from 'firebase/firestore';
 
 import AllCrimesTab from 'src/components/AllCrimesTab/AllCrimesTab';
+import { useStore } from 'src/store';
 
-type DashboardProps = {
-  crimes: QueryDocumentSnapshot<DocumentData>[];
-  isLoading: boolean;
-};
-
-const Dashboard: React.FC<DashboardProps> = ({ crimes, isLoading }) => {
-  console.log(crimes);
+const Dashboard = () => {
+  const { isLoadingCrime, crimes } = useStore();
   return (
     <Container maxWidth={'container.lg'}>
       <HStack py={4}>
@@ -59,7 +55,7 @@ const Dashboard: React.FC<DashboardProps> = ({ crimes, isLoading }) => {
           </TabList>
           <TabPanels>
             <TabPanel>
-              <AllCrimesTab crimes={crimes} isLoading={isLoading} />
+              <AllCrimesTab />
             </TabPanel>
           </TabPanels>
         </Tabs>
