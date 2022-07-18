@@ -6,10 +6,9 @@ import Login from './pages/Login/Login';
 import Dashboard from './pages/Dashboard/Dashboard';
 
 import { useStore } from './store';
-import RequiredAuth from './components/RequiredAuth/RequiredAuth';
 
 const App = () => {
-  const { fetchCrimes, user } = useStore();
+  const { fetchCrimes } = useStore();
 
   useEffect(() => {
     fetchCrimes();
@@ -19,9 +18,7 @@ const App = () => {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<Home />} />
-      <Route element={<RequiredAuth />}>
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Route>
+      <Route path="/dashboard" element={<Dashboard />} />
     </Routes>
   );
 };
