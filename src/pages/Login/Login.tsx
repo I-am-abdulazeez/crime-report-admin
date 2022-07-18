@@ -19,12 +19,12 @@ import { formData } from 'src/types';
 import { overlayBg, bgGradient, buttonGradient } from 'src/constants';
 
 const Login = () => {
-  const { register, handleSubmit, reset } = useForm<formData>();
+  const { register, handleSubmit } = useForm<formData>();
 
-  const { isLoadingUser, loginAdmin } = useStore();
+  const { isLoadingUser, loginAdmin, user } = useStore();
 
   useEffect(() => {
-    console.log('useEffect', isLoadingUser);
+    console.log('useEffect', user);
   }, []);
 
   const handleUserLogin: SubmitHandler<formData> = (data) => {
