@@ -1,4 +1,4 @@
-import { Button, Center } from '@chakra-ui/react';
+import { Button, Center, Heading } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import CrimeHeading from 'src/components/CrimeHeading/CrimeHeading';
 
@@ -24,6 +24,10 @@ const Home = () => {
       >
         Admin Login
       </Button>
+
+      <Heading fontSize={'sm'} mt={'2rem'}>
+        designed by Olagbile Abdul Samad
+      </Heading>
     </Center>
   );
 };
