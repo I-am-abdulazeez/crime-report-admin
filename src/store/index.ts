@@ -32,15 +32,15 @@ export const useStore = create<AppState>((set) => ({
       });
   },
   fetchCrimes: async () => {
-    set((state) => ({ isLoadingUser: (state.isLoadingCrime = true) }));
+    set((state) => ({ isLoadingCrime: (state.isLoadingCrime = true) }));
     const crimeQuery = query(collection(firestoreDb, 'crimes'));
     await getDocs(crimeQuery)
       .then((snapshot) => {
         set((state) => ({ crimes: (state.crimes = snapshot.docs) }));
-        set((state) => ({ isLoadingUser: (state.isLoadingCrime = false) }));
+        set((state) => ({ isLoadingCrime: (state.isLoadingCrime = false) }));
       })
       .catch((err) => {
-        set((state) => ({ isLoadingUser: (state.isLoadingCrime = false) }));
+        set((state) => ({ isLoadingCrime: (state.isLoadingCrime = false) }));
         console.log(err);
       });
   },
