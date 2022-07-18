@@ -5,16 +5,13 @@ import {
   Container,
   Heading,
   HStack,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
   Spacer,
   Tab,
   TabList,
   TabPanel,
   TabPanels,
   Tabs,
+  Text,
 } from '@chakra-ui/react';
 
 import AllCrimesTab from 'src/components/AllCrimesTab/AllCrimesTab';
@@ -22,7 +19,7 @@ import AllCrimesTab from 'src/components/AllCrimesTab/AllCrimesTab';
 import { useStore } from 'src/store';
 
 const Dashboard = () => {
-  const { isLoadingCrime, crimes } = useStore();
+  const { isLoadingCrime, crimes, user } = useStore();
   return (
     <Container maxWidth={'container.lg'}>
       <HStack py={4}>
@@ -33,24 +30,17 @@ const Dashboard = () => {
           Admin
         </Badge>
         <Spacer />
-        <Box>
-          <Menu isLazy arrowPadding={4} placement={'right-start'}>
-            <MenuButton>
-              <Avatar name="Crime Report" size={'sm'} />
-            </MenuButton>
-            <MenuList fontSize={'sm'}>
-              <MenuItem>Dark mode</MenuItem>
-              <MenuItem>Logout</MenuItem>
-            </MenuList>
-          </Menu>
-        </Box>
+        <HStack>
+          <Avatar name="Admin Report" size={'sm'} />
+          <Text>{user?.email}</Text>
+        </HStack>
       </HStack>
 
       <Box mt={7}>
         <Tabs variant={'soft-rounded'} colorScheme={'purple'}>
           <TabList>
             <Tab fontSize={'sm'}>All Crimes</Tab>
-            <Tab fontSize={'sm'}>Attended Crimes</Tab>
+            {/* <Tab fontSize={'sm'}>Attended Crimes</Tab> */}
           </TabList>
           <TabPanels>
             <TabPanel>
